@@ -1,0 +1,24 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Get hostname
+      command: echo {{ ansible_hostname.split('-')[1] }}
+      register: hostname
+
+    - name: Update env files
+      become: yes
+      become_user: root
+      shell: |
+        echo "AGENT_ID={{ hostname.stdout }}-{{ item }}::" >> "/tmp/{{ item }}.env"
+      with_items:
+        - app
+        - pet
+        - gate
+        - api
+      tags: runcmd
+      register: result
+
+    - name: Print output
+      debug:
+        var: result

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: blackbox-config-map
+  namespace: blackbox
+  labels:
+    app: blackbox
+data:
+  blackbox.yaml: |
+    modules:
+      http_2xx:
+        http:
+          preferred_ip_protocol: ip4
+        prober: http
+        timeout: 60s

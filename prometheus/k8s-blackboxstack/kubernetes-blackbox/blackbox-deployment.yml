@@ -1,0 +1,71 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blackbox
+  namespace: blackbox
+  labels:
+    app: blackbox
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blackbox
+  template:
+    metadata:
+      labels:
+        app: blackbox
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: blackbox
+          image: "prom/blackbox-exporter:latest"
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 1000
+          args:
+            - "--config.file=/config/blackbox.yaml"
+          resources:
+            {}
+          ports:
+            - containerPort: 9115
+              name: http
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+          volumeMounts:
+            - mountPath: /config
+              name: config
+          resources:
+            limits:
+              cpu: ".5"
+              memory: "200Mi"
+            requests:
+              cpu: ".5"
+              memory: "200Mi"
+        - name: configmap-reload
+          image: "jimmidyson/configmap-reload:latest"
+          imagePullPolicy: "IfNotPresent"
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 65534
+          args:
+            - --volume-dir=/etc/config
+            - --webhook-url=http://localhost:9115/-/reload
+          resources:
+            {}
+          volumeMounts:
+            - mountPath: /etc/config
+              name: config
+              readOnly: true
+      volumes:
+        - name: config
+          configMap:
+            name: blackbox-config-map
