@@ -1,0 +1,13 @@
+---
+# tasks file for roles/motd/task/uninstall
+
+- name: Remove file (delete file /etc/motd)
+  ansible.builtin.file:
+    path: /etc/motd
+    state: absent
+
+#- name: Recursively remove directory
+#  ansible.builtin.file:
+#    path: /etc/foo
+#    state: absent
+

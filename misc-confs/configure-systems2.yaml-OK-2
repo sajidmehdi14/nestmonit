@@ -14,8 +14,7 @@
    #- motd
    - node-exporter     
 
-- name: UnInstall motd
-  hosts: all
+- hosts: all
   tasks:
     - include_role:
         name: motd
