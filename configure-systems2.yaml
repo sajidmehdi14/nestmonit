@@ -1,12 +1,6 @@
-- servers:
-  hosts:
-    - 10.80.10.223
-    - 52.35.103.6
-    - 44.224.135.182
-
 # Playbook to call multiple roles to configure systems
 - name: Configure systems
-  hosts: servers
+  hosts: 52.35.103.6, 44.224.135.182
   become: yes
 
   tasks:
