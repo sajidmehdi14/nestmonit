@@ -3,12 +3,6 @@
     path: "{{ node_exporter_bin }}"
   register: __check_node_exporter_present
 
-- name: Remove the user 'node_exporter_user'
-  ansible.builtin.user:
-    name: "{{ node_exporter_user }}"
-    state: absent
-    remove: yes
-
 - name: Stop service node_exporter on debian, if running
   ansible.builtin.systemd:
     name: node_exporter
@@ -24,3 +18,9 @@
   file:
     path: "{{ node_exporter_dir_conf }}"
     state: absent
+
+- name: Remove the user 'node_exporter_user'
+  ansible.builtin.user:
+    name: "{{ node_exporter_user }}"
+    state: absent
+    remove: yes
