@@ -1,9 +1,8 @@
----
-servers:
+- servers:
   hosts:
-    10.80.10.223
-    52.35.103.6
-    44.224.135.182
+    - 10.80.10.223
+    - 52.35.103.6
+    - 44.224.135.182
 
 # Playbook to call multiple roles to configure systems
 - name: Configure systems
@@ -12,10 +11,11 @@ servers:
 
   tasks:
 
-- name: Call Roles
-  hosts: servers
+- name: Call Roles - SystemAdmin, Installations, Configurations & administration monitoring agents & clients
+  hosts: 52.35.103.6, 44.224.135.182
   roles:
    #- hostname
    #- firewalld
    #- ntp-config
    - motd
+   - node-exporter     
