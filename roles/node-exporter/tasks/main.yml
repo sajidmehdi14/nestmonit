@@ -42,11 +42,6 @@
     remote_src: yes
   when: __check_node_exporter_present.stat.exists == false or not __get_node_exporter_version.stdout == node_exporter_version
 
-- name: clean
-  file:
-    path: /tmp/node_exporter-{{ node_exporter_version }}.linux-amd64/
-    state: absent
-
 - name: install service
   template:
     src: node_exporter.service.j2
@@ -63,3 +58,8 @@
     name: node_exporter
     state: started
     enabled: yes  
+
+- name: clean installation dir
+  file:
+    path: /tmp/node_exporter-{{ node_exporter_version }}.linux-amd64/
+    state: absent
