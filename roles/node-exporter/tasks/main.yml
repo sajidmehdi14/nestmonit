@@ -59,7 +59,7 @@
     state: started
     enabled: yes  
 
-- name: clean installation dir
-  file:
-    path: /tmp/node_exporter-{{ node_exporter_version }}.linux-amd64/
-    state: absent
+#- name: clean installation dir
+#  file:
+#    path: /tmp/node_exporter-{{ node_exporter_version }}.linux-amd64/
+#    state: absent
