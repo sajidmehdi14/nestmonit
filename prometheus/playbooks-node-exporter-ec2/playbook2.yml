@@ -1,0 +1,17 @@
+---
+#- name: install filebeat
+#  hosts: all
+#  become: yes
+#  roles:
+#  - filebeat
+
+- name: UnInstall node_exporter
+  hosts: all
+  become: yes
+  tasks:
+    - include_role:
+        name: node-exporter
+        tasks_from: uninstall
+    - include_role:
+        name: motd
+        tasks_from: uninstall

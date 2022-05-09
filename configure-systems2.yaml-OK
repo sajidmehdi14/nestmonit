@@ -18,5 +18,8 @@
   hosts: all
   tasks:
     - include_role:
+        name: node-exporter
+        tasks_from: uninstall
+    - include_role:
         name: motd
         tasks_from: uninstall

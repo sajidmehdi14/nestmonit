@@ -14,7 +14,7 @@ Custom Setup Prometheus, Alertmanager & blackbox on Kubernetes
 # Prometheus with statefullset 
 
 kubectl create ns blackbox
-cd prometheus/blackboxstack/kubernetes-prometheus/
+cd prometheus/k8s-blackboxstack/kubernetes-prometheus/
 kubectl apply -f ./ -n blackbox
 
 cd ../kubernetes-alert-manager/
@@ -95,7 +95,7 @@ curl -X POST http://localhost:9090/-/reload
 
 # Clean up whole setup.
 ```
-cd prometheus/blackboxstack/kubernetes-prometheus/
+cd prometheus/k8s-blackboxstack/kubernetes-prometheus/
 kubectl delete -f ./ -n blackbox
 
 cd ../kubernetes-alert-manager/

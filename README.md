@@ -1,5 +1,16 @@
-# nestmonit
-Monitoring, Measuring, Observability, Anomaly , Corelation , security scaning &amp; Alerting
+# nestmonit for Innowi Inc. Ltd.
+Management, Administration, Monitoring, Measuring, Observability, Anomaly , Corelation , security scaning &amp; Alerting of AWS EC2 Instances, ECS, Kubernetes clusters, Apps & Kubernetes services.
+
+# Administration, controllers & Monitoring Servers installed, configured & deployed.
+- K8S Cluster (minikube) on EC2 Instance ( t2.large ) percona   
+  OR 
+```
+ AWS EKS on separate vpc and node groups deplyed.
+```
+
+- On K8S Clusters Deploy -> AWX, Prometheus blackbox stack
+- Ansible controller on Local system for development purposes.
+- IaaC on github repo -> nestmonit
 
 # Servers & Apps to be monitored
 - AWS EC2 Instances
