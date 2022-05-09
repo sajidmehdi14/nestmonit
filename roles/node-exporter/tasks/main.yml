@@ -1,6 +1,6 @@
 - name: check if node exporter exist
   stat:
-  path: "{{ node_exporter_bin }}"
+    path: "{{ node_exporter_bin }}"
   register: __check_node_exporter_present
 
 - name: create node exporter user
