@@ -12,13 +12,13 @@
    #- hostname
    #- firewalld
    #- ntp-config
-   - motd
-   #- node-exporter     
+   #- motd
+   - node-exporter     
 
 - name: UnInstall node_exporter
   hosts: all
   become: yes
   tasks:
     - include_role:
-        name: node-exporter
+        name: motd
         tasks_from: uninstall
