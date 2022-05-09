@@ -7,6 +7,7 @@
 
 - name: Call Roles - SystemAdmin, Installations, Configurations & administration monitoring agents & clients
   hosts: all
+  become: yes
   roles:
    #- hostname
    #- firewalld
@@ -16,6 +17,7 @@
 
 - name: UnInstall node_exporter
   hosts: all
+  become: yes
   tasks:
     - include_role:
         name: motd
