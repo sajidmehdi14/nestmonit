@@ -34,5 +34,5 @@
   become: yes
   tasks:
     - include_role:
-        name: node_exporter
+        name: node-exporter
         tasks_from: uninstall
