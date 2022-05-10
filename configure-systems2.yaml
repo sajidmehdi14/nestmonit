@@ -12,13 +12,27 @@
    #- hostname
    #- firewalld
    #- ntp-config
-   #- motd
+   #- dockerhost
+   #- lemp
+   #- nginx
+   #- apache2
+   #- mysql
+   - motd
    #- node-exporter
 
-- name: UnInstall node_exporter
+
+# - name: Master/Slave roles e.g mysql
+#   hosts: all
+#   become: yes
+#   tasks:
+#     - include_role:
+#         name: mysql
+#         tasks_from: master
+
+- name: UnInstall roles e.g motd, node_exporter & nginx
   hosts: all
   become: yes
   tasks:
     - include_role:
-        name: motd
+        name: node_exporter
         tasks_from: uninstall
