@@ -17,8 +17,8 @@
    #- nginx
    #- apache2
    #- mysql
-   - motd
-   #- node-exporter
+   #- motd
+   - node-exporter
 
 
 # - name: Master/Slave roles e.g mysql
@@ -34,5 +34,5 @@
   become: yes
   tasks:
     - include_role:
-        name: node-exporter
+        name: motd
         tasks_from: uninstall
