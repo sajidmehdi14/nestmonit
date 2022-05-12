@@ -12,7 +12,7 @@
    #- hostname
    #- firewalld
    #- ntp-config
-   - dockerhost
+   - dockerhost-org
    #- lemp
    #- nginx
    #- apache2
