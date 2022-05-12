@@ -1,0 +1,25 @@
+# Playbook to call multiple roles to configure systems
+- name: Configure systems
+  hosts: all
+  become: yes
+
+  tasks:
+
+- name: Call Roles - SystemAdmin, Installations, Configurations & administration monitoring agents & clients
+  hosts: all
+  roles:
+   #- hostname
+   #- firewalld
+   #- ntp-config
+   #- motd
+   - node-exporter     
+
+- name: UnInstall node_exporter
+  hosts: all
+  tasks:
+    - include_role:
+        name: node-exporter
+        tasks_from: uninstall
+    - include_role:
+        name: motd
+        tasks_from: uninstall
