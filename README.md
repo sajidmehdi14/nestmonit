@@ -13,6 +13,11 @@ Management, Administration, Monitoring, Measuring, Observability, Anomaly , Core
 - On K8S Clusters Deploy -> AWX, Prometheus blackbox stack
 - Ansible controller on Local system for development purposes.
 - IaaC on github repo -> nestmonit
+## See "AWX" Installation in Repo **ansible-monitor**  
+```
+git clone https://github.com/sajidmehdi14/ansible-monitoring
+cd ansible-monitoring/ansible/ansible-docs/6-awx/
+```
 
 # Servers & Apps to be monitored
 - AWS EC2 Instances
