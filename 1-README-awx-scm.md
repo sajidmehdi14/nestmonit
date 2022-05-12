@@ -8,4 +8,3 @@
 ```
 git clone https://github.com/sajidmehdi14/ansible-monitoring
 cd ansible-monitoring/ansible/ansible-docs/6-awx/
-```
