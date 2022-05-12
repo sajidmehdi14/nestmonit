@@ -1,1 +1,0 @@
-# Manage SCM, GitOps, DevOps, CloudOps Tasks with Ansible
