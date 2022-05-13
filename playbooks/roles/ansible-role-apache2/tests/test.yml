@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    - ansible-role-apache2
+  vars:
+    - apache2_php_version: 5  # Default version for Ubuntu Trusty

@@ -15,7 +15,7 @@
    - dockerhost
    #- lemp
    #- nginx
-   #- apache2
+   - apache2
    #- mysql
    #- motd
    - node-exporter
