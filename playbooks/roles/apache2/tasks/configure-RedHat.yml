@@ -30,8 +30,8 @@
   register: localhost_cert
   when: ansible_distribution_major_version | int >= 8
 
-# - name: Ensure httpd certs are installed (RHEL 8 and later).
-#   command: /usr/libexec/httpd-ssl-gencerts
-#   when:
-#     - ansible_distribution_major_version | int >= 8
-#     - not localhost_cert.stat.exists
+- name: Ensure httpd certs are installed (RHEL 8 and later).
+  command: /usr/libexec/httpd-ssl-gencerts
+  when:
+    - ansible_distribution_major_version | int >= 8
+    - not localhost_cert.stat.exists
