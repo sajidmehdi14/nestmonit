@@ -1,24 +1,24 @@
 # Playbook to call multiple roles to configure systems
 - name: Configure systems
   hosts: all
-  become: yes
+  become: true
 
   tasks:
 
 - name: Call Roles - SystemAdmin, Installations, Configurations & administration monitoring agents & clients
   hosts: all
-  become: yes
+  become: true
   roles:
    #- hostname
    #- firewalld
    #- ntp-config
-   - dockerhost
+   #- dockerhost
    #- lemp
    #- nginx
    #- apache2
    #- mysql
-   #- motd
-   - node-exporter
+   - motd
+   #- node-exporter
 
 
 # - name: Master/Slave roles e.g mysql
@@ -31,16 +31,16 @@
 
 - name: UnInstall roles e.g motd, node_exporter & nginx
   hosts: all
-  become: yes
+  become: true
   tasks:
     - include_role:
         name: motd
-        tasks_from: uninstall
+        # tasks_from: uninstall
 
-- name: Apache2 vhosts
+- name: Apache2 Multiple entries in vhosts
   hosts: all
   vars_files:
    - roles/apache2/vars/main.yml
-  become: yes
+  become: true
   roles:
    - apache2
