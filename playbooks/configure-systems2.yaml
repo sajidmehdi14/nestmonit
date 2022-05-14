@@ -15,7 +15,7 @@
    - dockerhost
    #- lemp
    #- nginx
-   - apache2
+   #- apache2
    #- mysql
    #- motd
    - node-exporter
@@ -36,3 +36,11 @@
     - include_role:
         name: motd
         tasks_from: uninstall
+
+- name: Apache2 vhosts
+  hosts: all
+  vars_files:
+   - roles/apache2/vars/main.yml
+  become: yes
+  roles:
+   - apache2
