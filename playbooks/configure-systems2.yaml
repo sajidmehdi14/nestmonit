@@ -35,7 +35,7 @@
   tasks:
     - include_role:
         name: motd
-        tasks_from: uninstall
+        # tasks_from: uninstall
 
 - name: Apache2 Multiple entries in vhosts
   hosts: all
