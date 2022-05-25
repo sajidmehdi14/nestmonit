@@ -41,7 +41,7 @@ helm install kube-exporter prometheus-community/kube-state-metrics  -n kube-syst
 ```
 # prometheus web ui
 kubectl get pods -n blackbox |grep prometheus
-kubectl port-forward prometheus-deployment-ID 9090:9090 -n blackbox
+kubectl port-forward prometheus-deployment-ID | prometheus-pod-ID 9090:9090 -n blackbox
 
 # grafana web ui
 kubectl get pods -n blackbox |grep grafana
