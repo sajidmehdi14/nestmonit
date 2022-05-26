@@ -4,10 +4,10 @@ Management, Administration, Monitoring, Measuring, Observability, Anomaly , Core
 
 # Administration, controllers & Monitoring Servers installed, configured & deployed.  
 
-- K8S Cluster (minikube) on EC2 Instance ( t2.large ) percona   
+- K8S Cluster (minikube) / K3S scaleable (preferred) on EC2 Instance ( t2.large ) percona   
   OR 
 ```
- AWS EKS on separate vpc and node groups deplyed.
+ AWS EKS on separate vpc and node groups deployed.
 ```
 
 - On K8S Clusters Deploy -> AWX, Prometheus blackbox stack
