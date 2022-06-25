@@ -1,3 +1,6 @@
+# This Project Shifted to monitoring-ansible Project
+
+
 # nestmonit SaaS product for Advanced Monitoring Setups
 
 Management, Administration, Monitoring, Measuring, Observability, Anomaly , Corelation , security scaning &amp; Alerting of AWS EC2 Instances, ECS, Kubernetes clusters, Apps & Kubernetes services.
